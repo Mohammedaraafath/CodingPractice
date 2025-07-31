@@ -1048,6 +1048,81 @@ public class HomeController {
 | Scalability | Low                 | High (suitable for microservices) |
 
 ---
+Absolutely! Below are **most commonly asked interview questions** on **Spring Security, Basic Auth, and JWT**, along with concise and **interview-ready answers**.
+
+---
+
+# 🔐 Spring Security (Basic Auth + JWT) Interview Questions
+
+---
+
+## ✅ **Basic Spring Security Questions**
+
+| **Question**                                                             | **Answer**                                                                            |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| **Q1. What is Spring Security?**                                         | A framework for securing Spring apps via authentication and authorization.            |
+| **Q2. What is the difference between authentication and authorization?** | **Authentication** = verifying identity; **Authorization** = checking access rights.  |
+| **Q3. What is @EnableWebSecurity?**                                      | Enables Spring Security’s web security features in your configuration class.          |
+| **Q4. How do you configure in-memory authentication?**                   | Use `inMemoryAuthentication()` in `configure(AuthenticationManagerBuilder)`.          |
+| **Q5. What is CSRF? How do you handle it?**                              | CSRF = Cross Site Request Forgery; disable it for APIs using `http.csrf().disable()`. |
+| **Q6. What is the default login behavior in Spring Security?**           | It provides a default login page and handles form login automatically.                |
+| **Q7. How do you secure REST endpoints in Spring Boot?**                 | Override `configure(HttpSecurity)` and use `.authorizeRequests()`.                    |
+
+---
+
+## ✅ **Basic Authentication Questions**
+
+| **Question**                             | **Answer**                                                                   |
+| ---------------------------------------- | ---------------------------------------------------------------------------- |
+| **Q8. What is Basic Authentication?**    | Client sends username and password (Base64 encoded) in every request header. |
+| **Q9. Is Basic Auth secure?**            | Not secure alone; must be used over HTTPS.                                   |
+| **Q10. When should you use Basic Auth?** | For simple apps, internal tools, or testing — not for public APIs.           |
+
+---
+
+## ✅ **JWT (JSON Web Token) Questions**
+
+| **Question**                                                   | **Answer**                                                                                |
+| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Q11. What is JWT?**                                          | A compact, signed token used for stateless authentication.                                |
+| **Q12. What are the parts of a JWT?**                          | Header, Payload (claims), Signature.                                                      |
+| **Q13. How is JWT more secure than Basic Auth?**               | JWT is **signed** (and optionally encrypted), and **stateless**, not sending credentials. |
+| **Q14. Where do you store JWT tokens on the client side?**     | Usually in **local storage** or **HTTP-only cookies** (cookies are safer).                |
+| **Q15. How do you validate a JWT in Spring Boot?**             | Extract token, validate signature and expiry using `io.jsonwebtoken.Jwts`.                |
+| **Q16. How do you generate JWT in Spring Boot?**               | Use `Jwts.builder().signWith(secret).compact()` in a utility class.                       |
+| **Q17. What is the use of @RestControllerAdvice in JWT apps?** | Handle exceptions globally, e.g., expired token or unauthorized access.                   |
+
+---
+
+## ✅ **Advanced and Behavioral Questions**
+
+| **Question**                                                            | **Answer**                                                                                          |
+| ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| **Q18. How is JWT stateless?**                                          | All info is inside the token; server does not store session data.                                   |
+| **Q19. What is the risk if a JWT token is stolen?**                     | Attacker can access resources until token expires — use **short expiry** and **refresh tokens**.    |
+| **Q20. What is the difference between access token and refresh token?** | Access token = short-lived for accessing APIs. Refresh token = long-lived to get new access tokens. |
+| **Q21. How to refresh JWT tokens in Spring Boot?**                      | Expose an endpoint `/refresh` to generate new access token using refresh token.                     |
+
+---
+
+## ✅ Real-Time Scenarios Interviewers May Ask
+
+| **Scenario**                                                | **What to Explain**                                                                         |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| **Q22. How would you secure a REST API for a banking app?** | Use Spring Security + JWT + HTTPS + role-based access control.                              |
+| **Q23. How do you handle token expiration?**                | Throw `ExpiredJwtException`, catch it in global handler, return 401 error.                  |
+| **Q24. How do you protect APIs from brute-force attacks?**  | Use rate-limiting (e.g., Bucket4j) + strong authentication.                                 |
+| **Q25. Can JWT be invalidated before expiry?**              | JWT is stateless, can't be invalidated unless **blacklisting** or **short expiry** is used. |
+
+---
+
+## 🔥 Summary Cheat Sheet
+
+| Concept          | Key Annotation / API       |
+| ---------------- | -------------------------- |
+| Enable security  | `@EnableWebSecurity`       |
+| Secure endpoints | `http.authorizeRequests()` |
+
 
 # ✅ Complete Clear Explanation of Spring Boot & Spring Data JPA Annotations
 
