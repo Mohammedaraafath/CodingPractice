@@ -94,6 +94,7 @@ public class FunctionalInterfaceExample {
 //    };
 //p.print("Hello");
 
+
 //    AfterJava8
 
 //Printer P=msg -> System.out.println("Message"+msg);
